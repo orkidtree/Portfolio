@@ -1,0 +1,301 @@
+
+@font-face {
+    font-family: "Nature";
+    src: url("Nature-Thin.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "NewSpirit";
+    src: url("new-spirit-light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  :root {
+    --bg: #efe5d6;
+    --card: #f6efe6;
+    --accent: #5a4420;
+    --muted: #8c7f64;
+    --shadow: 0 6px 18px rgba(30, 20, 10, 0.12);
+    --max-width: 980px;
+  
+    --font-body: "Nature", Georgia, serif;
+    --font-title: "NewSpirit", Georgia, serif;
+  }
+  
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: #2f2516;
+    font-family: var(--font-body);
+  }
+  
+  .page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .hero {
+    background: url("headerbg.jpg") center/cover no-repeat;
+    padding: 48px 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .pfp {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: var(--shadow);
+  }
+  .pfp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-title { 
+    font-size: 60px; 
+    margin: -1; 
+    color: var(--accent);
+    font-family: var(--font-title);
+    font-weight: bolder;
+    font-size: 4em;
+  }
+  .hero-sub { 
+    color: var(--muted); 
+    margin: 2px 1 1; 
+    font-family: var(--font-body);
+    font-weight: bolder;
+    font-size: 1.5em;
+  }
+  
+
+  .info-row {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .info-card {
+    flex: 1;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.9s ease, box-shadow 0.9s ease;
+  }
+  .info-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(30, 20, 10, 0.18);
+  }
+  .info-card h2 {
+    font-family: var(--font-title);
+  }
+  .info-card p, 
+  .info-card li {
+    font-family: var(--font-body);
+  }
+  .info-card ul { padding-left: 20px; }
+  .info-card a { color: var(--accent); text-decoration: none; }
+  
+
+  .skills-frog-row {
+    display: flex;
+    gap: 18px;
+    margin: 20px 0 40px;
+    align-items: stretch;
+  }
+  .skills-box {
+    flex: 1;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: #f6efe6;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .skills-box:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(30, 20, 10, 0.18);
+  }
+  .skills-box h2 {
+    font-family: var(--font-title);
+  }
+  .skills-box ul { 
+    padding-left: 20px; 
+    font-family: var(--font-body);
+  }
+  .frog-wrapper {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .frog {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    animation: floaty 3s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+
+  .section-title { 
+    margin: 40px 0 15px; 
+    text-align: center; 
+    color: var(--accent);
+    font-family: var(--font-title);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: titleFade 5s ease forwards;
+  }
+  @keyframes titleFade {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+
+  .gallery-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .gallery {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    scroll-behavior: smooth;
+    justify-content: center;
+  }
+  .gallery a { flex: 0 0 auto; scroll-snap-align: center; }
+  .gallery img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .gallery img:hover { 
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(90, 68, 32, 0.3);
+  }
+
+  .zines {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  .zine-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    background: var(--card);
+    padding: 18px 28px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--accent);
+    transition: background 0.3s, transform 0.3s;
+    font-family: var(--font-title);
+    position: relative;
+    overflow: hidden;
+  }
+  .zine-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(7, 106, 139, 0.446);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  .zine-btn:hover::after {
+    width: 300%; height: 300%;
+  }
+  .zine-btn:hover { 
+    background: #fff; 
+    transform: translateY(-4px); 
+  }
+  .fish-icon { width: 100px; height: auto; }
+  
+  .modal {
+    position: fixed;
+    inset: 0;
+    background:  rgba(7, 106, 139, 0.192);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  .modal:target {
+    display: flex;
+  }
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: var(--shadow);
+    text-align: center;
+    animation: earthyPop 0.9s ease;
+  }
+  .modal-content img {
+    max-height: 60vh;
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .modal-content h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    font-family: var(--font-title);
+  }
+  .modal-content p {
+    font-size: 1rem;
+    color: #555;
+    font-family: var(--font-body);
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: #2f2516;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* do not touch animation import to */
+  @keyframes earthyPop {
+    from { opacity: 0; transform: scale(0.95) rotate(-1deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); }
+  }
+  
